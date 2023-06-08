@@ -1,0 +1,153 @@
+
+digraph brackets {
+
+
+
+# direction is downwards
+rankdir=LR
+
+# setting graph title
+    // title
+    labelloc="t";
+    label="2022 LoL Worlds - Swiss Rounds Stage";
+    fontname = "Helvetica";
+    fontsize = 25;
+
+# setting alignment and node,edge attributes    
+node [shape=box, fixedsize = True, style=invis, label="",fontname = "Helvetica"]
+edge [style=invis]
+
+node [style=solid, fontname = "Helvetica"]
+edge [style=solid]
+
+# ===== Group D =====
+subgraph cluster_group_D {
+    bgcolor="plum"
+    label="Group D"
+    # ===== Quarter Finals =====
+    rD1 [shape = record, label = "{KR|GEN}", fontsize = 10] 
+    rD2 [shape = record, label = "{CN|RNG}", fontsize = 10]
+    rD3 [shape = record, label = "{PCS|CFO}", fontsize = 10]
+    rD4 [shape = record, label = "{NA|100T}", fontsize = 10]
+    
+    # === Seeds C1 and C2 qualifies to Knockout Stage ===
+    subgraph cluster_group_C_qualified {
+        label = "Qualifies to Knockout"
+        bgcolor = "lightblue"
+        fontsize = 15
+        # ===== Semi Finals =====
+        rDD1 [shape = record, label = "{SD1|GEN}", fontsize = 10]
+        rDD2 [shape = record, label = "{SD2|RNG}", fontsize = 10]
+    }
+
+# ===== Setting arrows =====
+rD1:e->rDD1:w
+rD2:e->rDD1:w
+rD3:e->rDD1:w
+rD4:e->rDD1:w
+rD1:e->rDD2:w
+rD2:e->rDD2:w
+rD3:e->rDD2:w
+rD4:e->rDD2:w
+
+}
+
+# ===== Group C =====
+subgraph cluster_group_C {
+    bgcolor="lightcoral"
+    label="Group C"
+    # ===== Quarter Finals =====
+    rC1 [shape = record, label = "{KR|DRX}", fontsize = 10] 
+    rC2 [shape = record, label = "{CN|TES}", fontsize = 10]
+    rC3 [shape = record, label = "{EMEA|RGE}", fontsize = 10]
+    rC4 [shape = record, label = "{VN|GAM}", fontsize = 10]
+    
+    # === Seeds C1 and C2 qualifies to Knockout Stage ===
+    subgraph cluster_group_C_qualified {
+        label = "Qualifies to Knockout"
+        bgcolor = "lightblue"
+        fontsize = 15
+        # ===== Semi Finals =====
+        rCC1 [shape = record, label = "{SC1|DRX}", fontsize = 10]
+        rCC2 [shape = record, label = "{SC2|RGE}", fontsize = 10]
+    }
+
+# ===== Setting arrows =====
+rC1:e->rCC1:w
+rC2:e->rCC1:w
+rC3:e->rCC1:w
+rC4:e->rCC1:w
+rC1:e->rCC2:w
+rC2:e->rCC2:w
+rC3:e->rCC2:w
+rC4:e->rCC2:w
+
+}
+
+# ===== Group B =====
+subgraph cluster_group_B {
+    bgcolor="gold"
+    label="Group B"
+    # ===== Quarter Finals =====
+    rB1 [shape = record, label = "{KR|DK}", fontsize = 10] 
+    rB2 [shape = record, label = "{CN|JDG}", fontsize = 10]
+    rB3 [shape = record, label = "{EMEA|G2}", fontsize = 10]
+    rB4 [shape = record, label = "{NA|EG}", fontsize = 10]
+    
+    # === Seeds B1 and B2 qualifies to Knockout Stage ===
+    subgraph cluster_group_B_qualified {
+        label = "Qualifies to Knockout"
+        bgcolor = "lightblue"
+        fontsize = 15
+        # ===== Semi Finals =====
+        rBB1 [shape = record, label = "{SB1|JDG}", fontsize = 10]
+        rBB2 [shape = record, label = "{SB2|DK}", fontsize = 10]
+    }
+
+# ===== Setting arrows =====
+rB1:e->rBB1:w
+rB2:e->rBB1:w
+rB3:e->rBB1:w
+rB4:e->rBB1:w
+rB1:e->rBB2:w
+rB2:e->rBB2:w
+rB3:e->rBB2:w
+rB4:e->rBB2:w
+
+}
+
+# ===== Group A =====
+subgraph cluster_group_A {
+    bgcolor="lightgreen"
+    label="Group A"
+    # ===== Quarter Finals =====
+    rA1 [shape = record, label = "{KR|T1}", fontsize = 10] 
+    rA2 [shape = record, label = "{CN|EDG}", fontsize = 10]
+    rA3 [shape = record, label = "{EMEA|FNC}", fontsize = 10]
+    rA4 [shape = record, label = "{NA|C9}", fontsize = 10]
+    
+    # === Seeds A1 and A2 qualifies to Knockout Stage ===
+    subgraph cluster_group_A_qualified {
+        label = "Qualifies to Knockout"
+        fontsize = 15
+        bgcolor = "lightblue"
+        # ===== Semi Finals =====
+        rAA1 [shape = record, label = "{SA1|T1}", fontsize = 10]
+        rAA2 [shape = record, label = "{SA2|EDG}", fontsize = 10]
+    }
+
+# ===== Setting arrows =====
+rA1:e->rAA1:w
+rA2:e->rAA1:w
+rA3:e->rAA1:w
+rA4:e->rAA1:w
+rA1:e->rAA2:w
+rA2:e->rAA2:w
+rA3:e->rAA2:w
+rA4:e->rAA2:w
+
+}
+
+
+
+}

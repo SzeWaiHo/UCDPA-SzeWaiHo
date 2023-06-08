@@ -1,63 +1,50 @@
 
-digraph sportsbracket {
+digraph brackets {
 
-#direction is downwards
+# direction is downwards
 rankdir=LR
 
-#set graph attributes
-graph [label="2023 LoL Worlds - Knockout Stage", fontname = "Helvetica", fontsize = 25]
-
-#node [shape=box, width=2]
-
+# setting graph title
+    // title
+    labelloc="t";
+    label="2022 LoL Worlds - Knockout Stage";
+    fontname = "Helvetica";
+    fontsize = 25;
+    
+# setting alignment and node,edge attributes    
 node [shape=box, width=2, style=invis, label="",fontname = "Helvetica"]
 edge [style=invis]
 
 node [style=solid, fontname = "Helvetica"]
 edge [style=solid]
 
-r1a [shape = record, label = "{A1|JDG}"]
-r1b [shape = record, label = "{B2|RGE}"]
-r1c [shape = record, label = "{B1|T1}"]
-r1d [shape = record, label = "{A2|RNG}"]
-r1e [shape = record, label = "{C1|GEN}"]
-r1f [shape = record, label = "{D2|DK}"]
-r1g [shape = record, label = "{D1|DRX}"]
-r1h [shape = record, label = "{C2|EDG}"]
+
+# ===== Quarter Finals =====
+r1a [shape = record, label = "{Group A}|{KR|T1}",bgcolor="lightgreen"] 
+r1b [shape = record, label = "{CN|EDG}"]
+r1c [shape = record, label = "{EMEA|FNC}"]
+r1d [shape = record, label = "{NA|C9}"]
 
 
+# ===== Semi Finals =====
+r2a [shape = record, label = "{Seeds A1 and A2}|{SA1|JDG}"]
+r2b [shape = record, label = "{SA2|T1}"]
 
-r2a [shape = record, label = "{Q1|JDG}"]
-r2b [shape = record, label = "{Q2|T1}"]
-r2c [shape = record, label = "{Q3|GEN}"]
-r2d [shape = record, label = "{Q4|DRX}"]
+# ===== Qualifies to Knockout Stage
+r3a [shape = record, label = "Qualified to Knockout Stage"]
 
 
-r3a [shape = record, label = "{S1|T1}"]
-r3b [shape = record, label = "{S2|DRX}"]
-
-r4a [shape = record, label = "{WINNER|DRX}"]
-
-rQ [shape = oval, label = "QUARTERFINALS", fontsize = 20]
-
-rS [shape = oval, label = "SEMI-FINALS", fontsize = 20]
-
-rF [shape = oval, label = "FINALS", fontsize = 20]
-
+# ===== Setting arrows =====
 r1a:e->r2a:w
 r1b:e->r2a:w
 r1c:e->r2b:w
 r1d:e->r2b:w
-r1e:e->r2c:w
-r1f:e->r2c:w
-r1g:e->r2d:w
-r1h:e->r2d:w
 
 r2a:e->r3a:w
 r2b:e->r3a:w
-r2c:e->r3b:w
-r2d:e->r3b:w
 
-r3a:e->r4a:w
-r3b:e->r4a:w
+
+
+
 
 }
