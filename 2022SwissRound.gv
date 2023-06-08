@@ -11,10 +11,10 @@ rankdir=LR
     labelloc="t";
     label="2022 LoL Worlds - Swiss Rounds Stage";
     fontname = "Helvetica";
-    fontsize = 25;
+    fontsize = 30;
 
 #Full Graph Background Colour
-bgcolor = "beige"
+bgcolor = "khaki"
 
 # setting alignment and node,edge attributes    
 node [shape=box, fixedsize = True, style=invis, label="",fontname = "Helvetica"]
@@ -27,6 +27,7 @@ edge [style=solid]
 subgraph cluster_group_D {
     bgcolor="plum"
     label="Group D"
+    fontsize = 20
     # ===== Quarter Finals =====
     rD1 [shape = record, label = "{KR|GEN}", fontsize = 10] 
     rD2 [shape = record, label = "{CN|RNG}", fontsize = 10]
@@ -59,6 +60,7 @@ rD4:e->rDD2:w
 subgraph cluster_group_C {
     bgcolor="lightcoral"
     label="Group C"
+    fontsize = 20
     # ===== Quarter Finals =====
     rC1 [shape = record, label = "{KR|DRX}", fontsize = 10] 
     rC2 [shape = record, label = "{CN|TES}", fontsize = 10]
@@ -91,6 +93,7 @@ rC4:e->rCC2:w
 subgraph cluster_group_B {
     bgcolor="gold"
     label="Group B"
+    fontsize = 20
     # ===== Quarter Finals =====
     rB1 [shape = record, label = "{KR|DK}", fontsize = 10] 
     rB2 [shape = record, label = "{CN|JDG}", fontsize = 10]
@@ -123,6 +126,7 @@ rB4:e->rBB2:w
 subgraph cluster_group_A {
     bgcolor="lightgreen"
     label="Group A"
+    fontsize = 20
     # ===== Quarter Finals =====
     rA1 [shape = record, label = "{KR|T1}", fontsize = 10] 
     rA2 [shape = record, label = "{CN|EDG}", fontsize = 10]
