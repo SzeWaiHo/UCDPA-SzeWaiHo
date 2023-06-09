@@ -1,5 +1,0 @@
-digraph {
-	a [shape=box]
-	b [shape=box]
-	a -> b
-}
