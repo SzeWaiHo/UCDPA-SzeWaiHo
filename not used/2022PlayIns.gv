@@ -1,0 +1,220 @@
+
+digraph brackets {
+
+
+# direction is downwards
+rankdir=LR
+
+# setting graph title
+    // title
+    labelloc="t";
+    label="2022 LoL Worlds - Stage 1 - Play Ins";
+    fontname = "Helvetica";
+    fontsize = 30;
+
+# setting alignment and node,edge attributes    
+node [shape=box, fixedsize = True, style=invis, label="",fontname = "Helvetica"]
+edge [style=invis]
+
+node [style=solid, fontname = "Helvetica"]
+edge [style=solid]
+
+
+# ===== Group A =====
+subgraph cluster_group_A {
+
+    bgcolor="palegreen"
+    label="Group A"
+    fontsize = 20
+    
+    # ===== Round A Play Offs =====
+    rA1 [shape = record, label = "{#1|FNC}", fontsize = 10] 
+    rA2 [shape = record, label = "{#2|EG}", fontsize = 10]
+    rA3 [shape = record, label = "{#3|LLL}", fontsize = 10]
+    rA4 [shape = record, label = "{#4|DFM}", fontsize = 10]
+    rA5 [shape = record, label = "{#5|BG}", fontsize = 10]
+    rA6 [shape = record, label = "{#6|CEC}", fontsize = 10]
+    
+    # === Winner of Play Ins Group A automatically enters Swiss Round
+    subgraph cluster_winner_A {
+        label = "Swiss Round"
+        fontsize = 10
+        bgcolor = "khaki"
+        rAA1 [shape = record, label = "{A1|FNC}", fontsize = 10]
+    }
+    
+    # === Group A 3rd and 4th play Elimination Round to challenge Group B Runner Up  ===
+    subgraph cluster_elimination_A {
+        label = "Elimination Round"
+        fontsize = 10
+        bgcolor = "coral"
+        rAA3 [shape = record, label = "{A3|LLL}", fontsize = 10]
+        rAA4 [shape = record, label = "{A4|DFM}", fontsize = 10]
+    }
+       
+    # === Runner Up of Group A plays in Elimination Round ===
+    subgraph cluster_runnerup_A {
+        label = "Runner Up"
+        fontsize = 10
+        bgcolor = "dodgerblue"
+        rAA2 [shape = record, label = "{A2|EG}", fontsize = 10]
+        rBB2 [shape = record, label = "{B2|RNG}", fontsize = 10]
+    }    
+    
+    # === Qualification Round ===
+    subgraph cluster_qualification_A {
+        label = "Qualification Round"
+        fontsize = 10
+        bgcolor = "dodgerblue"
+        rQA3 [shape = record, label = "{WEA|DFM}", fontsize = 10]
+        rQB2 [shape = record, label = "{B2|RNG}", fontsize = 10] 
+    }    
+    
+    # === Swiss Qualification Round ===
+    subgraph cluster_swiss_qualification_A {
+        label = "Swiss Round"
+        fontsize = 10
+        bgcolor = "khaki"
+        rAAA [shape = record, label = "{WQA|RNG}", fontsize = 10]
+    }    
+
+    
+# ===== Setting arrows =====
+
+#Winner of Group A
+rA1:e->rAA1:w
+rA2:e->rAA1:w
+rA3:e->rAA1:w
+rA4:e->rAA1:w
+rA5:e->rAA1:w
+rA6:e->rAA1:w
+
+# Qualification Round 
+rA1:e->rAA2:w
+rA2:e->rAA2:w
+rA3:e->rAA2:w
+rA4:e->rAA2:w
+rA5:e->rAA2:w
+rA6:e->rAA2:w
+
+#Elimination Round
+rA1:e->rAA3:w
+rA2:e->rAA3:w
+rA3:e->rAA3:w
+rA4:e->rAA3:w
+rA5:e->rAA3:w
+rA6:e->rAA3:w
+rA1:e->rAA4:w
+rA2:e->rAA4:w
+rA3:e->rAA4:w
+rA4:e->rAA4:w
+rA5:e->rAA4:w
+rA6:e->rAA4:w
+
+#Winner of Elimination Round A
+rAA3:e->rQA3:w
+rAA4:e->rQA3:w
+rBB2:e->rQB2:w
+
+#Winner of Qualification Round A
+rQA3:e->rAAA:w
+rQB2:e->rAAA:w
+
+}
+
+
+
+# ===== Group B =====
+subgraph cluster_group_B {
+
+    bgcolor="darksalmon"
+    label="Group B"
+    fontsize = 20
+    
+    # ===== Round B Play Offs =====
+    rB1 [shape = record, label = "{#1|DRX}", fontsize = 10] 
+    rB2 [shape = record, label = "{#2|RNG}", fontsize = 10]
+    rB3 [shape = record, label = "{#3|MAD}", fontsize = 10]
+    rB4 [shape = record, label = "{#4|SGB}", fontsize = 10]
+    rB5 [shape = record, label = "{#5|ISC}", fontsize = 10]
+    rB6 [shape = record, label = "{#6|HWA}", fontsize = 10]
+    
+    # === Winner of Play Ins Group B automatically enters Swiss Round
+    subgraph cluster_winner_B {
+        label = "Swiss Round"
+        fontsize = 10
+        bgcolor = "khaki"
+        rBB1 [shape = record, label = "{B1|DRX}", fontsize = 10]
+    }
+    
+    # === Group B 3rd and 4th play Elimination Round to challenge Group A Runner Up  ===
+    subgraph cluster_elimination_B {
+        label = "Elimination Round"
+        fontsize = 10
+        bgcolor = "coral"
+        rBB3 [shape = record, label = "{B3|MAD}", fontsize = 10]
+        rBB4 [shape = record, label = "{B4|SGB}", fontsize = 10]
+    }
+           
+    # === Qualification Round ===
+    subgraph cluster_qualification_B {
+        label = "Qualification Round"
+        fontsize = 10
+        bgcolor = "dodgerblue"
+        rQB3 [shape = record, label = "{WEB|MAD}", fontsize = 10]
+        rQA2 [shape = record, label = "{A2|EG}", fontsize = 10] 
+    }    
+    
+    # === Swiss Qualification Round ===
+    subgraph cluster_swiss_qualification_B {
+        label = "Swiss Round"
+        fontsize = 10
+        bgcolor = "khaki"
+        rBBB [shape = record, label = "{WQB|EG}", fontsize = 10]
+    }      
+    
+# ===== Setting arrows =====
+
+#Winner of Group B
+rB1:e->rBB1:w
+rB2:e->rBB1:w
+rB3:e->rBB1:w
+rB4:e->rBB1:w
+rB5:e->rBB1:w
+rB6:e->rBB1:w
+
+# Qualification Round 
+rB1:e->rBB2:w
+rB2:e->rBB2:w
+rB3:e->rBB2:w
+rB4:e->rBB2:w
+rB5:e->rBB2:w
+rB6:e->rBB2:w
+
+#Elimination Round
+rB1:e->rBB3:w
+rB2:e->rBB3:w
+rB3:e->rBB3:w
+rB4:e->rBB3:w
+rB5:e->rBB3:w
+rB6:e->rBB3:w
+rB1:e->rBB4:w
+rB2:e->rBB4:w
+rB3:e->rBB4:w
+rB4:e->rBB4:w
+rB5:e->rBB4:w
+rB6:e->rBB4:w
+
+#Winner of Elimination Round B
+rBB3:e->rQB3:w
+rBB4:e->rQB3:w
+rAA2:e->rQA2:w
+
+#Winner of Qualification Round B
+rQB3:e->rBBB:w
+rQA2:e->rBBB:w
+
+}
+
+
+}
